@@ -13,6 +13,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
+
 app.use('/api/contacts', contactsRouter); // Usa la ruta de los contactos
 
 app.use((req, res) => {

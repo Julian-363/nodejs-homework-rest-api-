@@ -1,8 +1,11 @@
+
 /*const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
 const contactsModel = require('../../models/contacts');
 
+
+// middleware
 const contactSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().email().required(),
@@ -45,23 +48,6 @@ router.post('/', (req, res) => {
   res.status(201).json(newContact);
 });
 
-// DELETE /api/contacts/:id
-router.delete('/:id', (req, res) => {
-  const contact = contactsModel.getContactById(req.params.id);
-
-  if (!contact) {
-    res.status(404).json({ message: 'Contact not found' });
-    return;
-  }
-
-  const result = contactsModel.removeContact(req.params.id);
-  if (result) {
-    res.status(200).json({ message: 'Contact deleted' });
-  } else {
-    res.status(500).json({ message: 'Error deleting contact' });
-  }
-});
-
 
 // PUT /api/contacts/:id
 router.put('/:id', (req, res) => {
@@ -80,5 +66,20 @@ router.put('/:id', (req, res) => {
   }
 });
 
-module.exports = router;*/
+// DELETE /api/contacts/:id
+router.delete('/:id', (req, res) => {
+  const contact = contactsModel.getContactById(req.params.id);
+
+  if (!contact) {
+    res.status(404).json({ message: 'Contact not found' });
+    return;
+  }
+
+  const result = contactsModel.removeContact(req.params.id);
+  if (result) {
+    res.status(200).json({ message: 'Contact deleted' });
+  } else {
+    res.status(500).json({ message: 'Error deleting contact' });
+  }
+});
 
