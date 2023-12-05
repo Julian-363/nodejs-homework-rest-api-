@@ -58,12 +58,9 @@ const removeContact = (id) => {
   return true;
 };
 
-
 module.exports = {
   addContact,
   listContacts,
-  getContactById,
   updateContact,
   removeContact,
 };*/
-
