@@ -1,61 +1,60 @@
+/*const mongoose = require('mongoose');
+
+const contactSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'Set name for contact'],
+    },
+    email: String,
+    phone: String,
+    favorite: {
+        type: Boolean,
+        default: false,
+    },
+});
+
+module.exports = mongoose.model('Contact', contactSchema);
+
+
 // const fs = require('fs/promises')
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid'); // Importa uuidv4 de la biblioteca uuid
+const { v4: uuidv4 } = require('uuid');
 
-const contactsFilePath = path.join(__dirname, 'contacts.json');
+const contactsFilePath = path.join(__dirname, 'db', 'contacts.json');
 
 const readContactsFile = () => {
-  const data = fs.readFileSync(contactsFilePath, 'utf8');
-  return JSON.parse(data);
+  const fileContent = fs.readFileSync(contactsFilePath, 'utf8');
+  return JSON.parse(fileContent);
 };
 
 const writeContactsFile = (contacts) => {
   fs.writeFileSync(contactsFilePath, JSON.stringify(contacts, null, 2));
 };
 
-const listContacts = () => {
-  return readContactsFile();
-};
-
-const getContactById = (id) => {
-
-  
-  const contacts = readContactsFile();
-  return contacts.find((contact) => contact.id === id);
-};
-
 const addContact = (contact) => {
   const contacts = readContactsFile();
-  const newContact = { id: uuidv4(), ...contact }; // Genera un nuevo UUID
+  const newContact = { id: uuidv4(), ...contact };
   contacts.push(newContact);
   writeContactsFile(contacts);
   return newContact;
 };
 
+const listContacts = () => {
+  return readContactsFile();
+};
+
 const updateContact = (id, updatedData) => {
   const contacts = readContactsFile();
   const contactToUpdate = contacts.find((contact) => contact.id === id);
-
-
-  if (!contactToUpdate) {
-    return null;
-  }
-
-  Object.assign(contactToUpdate, updatedData);
+  // ... lógica de actualización
   writeContactsFile(contacts);
   return contactToUpdate;
 };
 
 const removeContact = (id) => {
   const contacts = readContactsFile();
-  const indexToRemove = contacts.findIndex((contact) => contact.id === id);
-
-  if (indexToRemove === -1) {
-    return false;
-  }
-
-  contacts.splice(indexToRemove, 1);
+  // ... lógica de eliminación
   writeContactsFile(contacts);
   return true;
 };
@@ -63,8 +62,9 @@ const removeContact = (id) => {
 module.exports = {
   addContact,
   listContacts,
-  getContactById,
   updateContact,
   removeContact,
 };
+*/
+
 

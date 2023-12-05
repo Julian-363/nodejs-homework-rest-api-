@@ -1,7 +1,9 @@
-const express = require('express');
+
+/*const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
 const contactsModel = require('../../models/contacts');
+
 
 // middleware
 const contactSchema = Joi.object({
@@ -46,6 +48,7 @@ router.post('/', (req, res) => {
   res.status(201).json(newContact);
 });
 
+
 // PUT /api/contacts/:id
 router.put('/:id', (req, res) => {
   const { error } = updateContactSchema.validate(req.body); // Utiliza el esquema de validación para actualizar
@@ -63,23 +66,5 @@ router.put('/:id', (req, res) => {
   }
 });
 
-// DELETE /api/contacts/:id
-router.delete('/:id', (req, res) => {
-  const contact = contactsModel.getContactById(req.params.id);
-
-  if (!contact) {
-    res.status(404).json({ message: 'Contact not found' });
-    return;
-  }
-
-  const result = contactsModel.removeContact(req.params.id);
-  if (result) {
-    res.status(200).json({ message: 'Contact deleted' });
-  } else {
-    res.status(500).json({ message: 'Error deleting contact' });
-  }
-});
-
-
-module.exports = router;
+module.exports = router;*/
 
